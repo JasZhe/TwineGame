@@ -27,7 +27,8 @@ body
 div.sources
 {
   font-size: 10px;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Check Phone" tags="" position="2182,374" size="100,100">{
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Check Phone" tags="" position="2182,374" size="100,100">{
 	(if: $start is true) [
 		Good morning! Like a typical teenager the first thing you do is go to your phone. 
 		&lt;br&gt;Which app do you open first?
@@ -67,7 +68,7 @@ images retrieved from: https://www.pinterest.ca/pin/391039180143374844/
 (set: $current_app to &quot;twitter&quot;)</tw-passagedata><tw-passagedata pid="5" name="Facebook" tags="" position="2635,611" size="100,100">[[Tag a friend (or two) in a meme-&gt;Notification1]]
 (set: $current_app to &quot;facebook&quot;)</tw-passagedata><tw-passagedata pid="6" name="Notification1" tags="" position="2187,868" size="100,100">You get a notification!
 { 
-  (set: _text to &quot;Open Notification&quot;) 
+  (set: _text to &quot;Open notification.&quot;) 
   (if: $current_app is &quot;snapchat&quot;) [
 		(set: $snapchat_person to &quot;xxJohnxx&quot;)
 		[[_text-&gt;Snapchat Notification]]
@@ -86,12 +87,14 @@ LOL who the fuck do you think you are?
 ur so ugly
 stop posting shit like this
 nobody wants to see it
-
 [[Accept the request-&gt;Instagram Allow]]
+
 [[Decline the request-&gt;Instagram Decline]]</tw-passagedata><tw-passagedata pid="9" name="Twitter Notification" tags="" position="2386,1058" size="100,100">[[Jason Z. mentioned you in @realDonaldTrump&#39;s latest tweet!-&gt;Tweet]]</tw-passagedata><tw-passagedata pid="10" name="Facebook Notification" tags="" position="2857,1061" size="100,100">Alice Tran mentioned you in a comment.
 It&#39;s some sort of conspiracy video. How do you react?
 [[&quot;LOL&quot;-&gt;Facebook Reaction]]
+
 [[&quot;OMG I can&#39;t believe it&quot;-&gt;Facebook Reaction]]
+
 [[&quot;This is bullshit&quot;-&gt;Facebook Reaction]]</tw-passagedata><tw-passagedata pid="11" name="Code for DM pictures" tags="" position="1985,158" size="100,100">
 &lt;p&gt;
 &lt;img src=&quot;images/instagram/instagram_dm_list.jpg&quot; width=&quot;500&quot;&gt;
@@ -103,7 +106,16 @@ It&#39;s some sort of conspiracy video. How do you react?
 [(goto: &quot;Person B&quot;)]
 &lt;!-- (link: &#39;&lt;img src=&quot;images/instagram/instagram_dm_list_item.png&quot; width=&quot;500&quot;&gt;&#39;) --&gt;
 &lt;!-- [(goto: &quot;Person C&quot;)] --&gt;
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="12" name="Snapchat Allow" tags="" position="1300,1114" size="100,100">[[Snapchat from $snapchat_person-&gt;Snapchat location route 1]]
+&lt;/p&gt;
+
+
+tw-sidebar tw-icon.redo {
+	display: none;
+}
+
+tw-sidebar tw-icon.undo {
+	display: none;
+}</tw-passagedata><tw-passagedata pid="12" name="Snapchat Allow" tags="" position="1300,1114" size="100,100">[[Snapchat from $snapchat_person-&gt;Snapchat location route 1]]
 [[Snapchat from $snapchat_person-&gt;Snapchat Nude Route 10]]
 </tw-passagedata><tw-passagedata pid="13" name="Snapchat Decline" tags="" position="1607,1239" size="100,100">{
 (set: _text to &quot;Good job! You did not add a random stranger on the internet. Especially over Snapchat, this could go wrong in many ways. Do not add random people to your Snapchat, and make sure your privacy settings are secure so that the people who view your Public Snapchats are not random people that could potentially be dangerous.&quot;)
@@ -116,9 +128,10 @@ It&#39;s some sort of conspiracy video. How do you react?
 	[[Go back to home screen-&gt;Check Phone]] 
 ]
 
-}</tw-passagedata><tw-passagedata pid="14" name="Instagram Allow" tags="" position="1843,1304" size="100,100">You accept the message. What do you respond with?
-[[??? what-&gt;Instagram Response]]
-[[sending means messages like this to ppl does not work. u need to get a life.-&gt;Instagram Response]]</tw-passagedata><tw-passagedata pid="15" name="Instagram Decline" tags="" position="2068,1322" size="100,100">{
+}</tw-passagedata><tw-passagedata pid="14" name="Instagram Allow" tags="" position="1841,1303" size="100,100">You accept the message. What do you respond with?
+[[??? what-&gt;Instagram Response 1]]
+
+[[sending mean messages like this to ppl does not work. u need to get a life.-&gt;Instagram Response 2]]</tw-passagedata><tw-passagedata pid="15" name="Instagram Decline" tags="" position="2068,1322" size="100,100">{
 (set: $available_apps to $available_apps - (a: &quot;instagram&quot;))
 (set: _text to &quot;Good job, you’ve ignored this random person’s comment. No other person, especially a stranger on the internet, should have the power to make you feel any less about yourself. As long as you are not posting things that will harm someone or hurt someone else intentionally, go ahead! Freedom of speech exists for a reason..&quot;)
 (set: $available_apps to $available_apps - (a: &quot;instagram&quot;))
@@ -129,7 +142,7 @@ It&#39;s some sort of conspiracy video. How do you react?
 	[[Go back to home screen-&gt;Check Phone]]
 ]
 }</tw-passagedata><tw-passagedata pid="16" name="Facebook Reaction" tags="" position="2728,1228" size="100,100">{
-(set: _text to &quot;Nobody really acknowledges your comment&quot;)
+(set: _text to &quot;Alice Tran reacted to your comment.&quot;)
 (set: $available_apps to $available_apps - (a: &quot;facebook&quot;))
 (if: $available_apps&#39;s length is 0) [
 	[[_text-&gt;The End]] 
@@ -141,14 +154,13 @@ It&#39;s some sort of conspiracy video. How do you react?
 (set: $start to true)
 (set: $current_app to &quot;none&quot;)
 (set: $available_apps to (a: &quot;snapchat&quot;, &quot;instagram&quot;, &quot;twitter&quot;, &quot;facebook&quot;))</tw-passagedata><tw-passagedata pid="18" name="Snapchat location route 1" tags="" position="1166,1342" size="100,100">$snapchat_person
-[[heyyyy i got ur snapchat from jason the other daycuz you left the party before i could ask for ur number :(-&gt;Snapchat location route 2]]</tw-passagedata><tw-passagedata pid="19" name="Snapchat Nude Route 10" tags="" position="1399,1347" size="100,100">[[You open the Snapchat from xxJohnxx and to your horror, you see something that you now cannot erase from your eyes, your brain, or your existence.-&gt;Snapchat Nude Route 1.1]]</tw-passagedata><tw-passagedata pid="20" name="Snapchat location route 2" tags="" position="1169,1487" size="100,100">[[would u like to hangout sometime ???-&gt;Snapchat location route 3]]</tw-passagedata><tw-passagedata pid="21" name="Snapchat location route 3" tags="" position="1167,1634" size="100,100">[[hello?-&gt;Snapchat location route 4]]</tw-passagedata><tw-passagedata pid="22" name="Snapchat location route 4" tags="" position="1166,1772" size="100,100">You finally respond to his message. What do you say?
+[[heyyyy i got ur snapchat from jason the other day &lt;br&gt; cuz you left the party before i could ask for ur number :(-&gt;Snapchat location route 2]]</tw-passagedata><tw-passagedata pid="19" name="Snapchat Nude Route 10" tags="" position="1399,1347" size="100,100">[[You open the Snapchat from xxJohnxx and to your horror, you see something that you now cannot erase from your eyes, your brain, or your existence.-&gt;Snapchat Nude Route 1.1]]</tw-passagedata><tw-passagedata pid="20" name="Snapchat location route 2" tags="" position="1169,1487" size="100,100">[[would u like to hangout sometime ???-&gt;Snapchat location route 3]]</tw-passagedata><tw-passagedata pid="21" name="Snapchat location route 3" tags="" position="1167,1634" size="100,100">[[hello?-&gt;Snapchat location route 4]]</tw-passagedata><tw-passagedata pid="22" name="Snapchat location route 4" tags="" position="1166,1772" size="100,100">You finally respond to his message. What do you say?
 (link: &quot;heyyyy sorry i was doing sumthin lol um sure??? \n but i dont even know u lol&quot;)[(set: $snapchat_reply to 1)(goto: &quot;Snapchat Wait For Reply&quot;)]
 
-(link: &quot;um sorry i dont even know u and i dont know why u have my snapchat&quot;)[(set: $snapchat_reply to 2)(goto: &quot;Snapchat Wait For Reply&quot;)]
+(link: &quot;sure!!!&quot;)[(set: $snapchat_reply to 2)(goto: &quot;Snapchat Wait For Reply&quot;)]
 
-(link: &quot;sure!!!&quot;)[(set: $snapchat_reply to 3)(goto: &quot;Snapchat Wait For Reply&quot;)]
-</tw-passagedata><tw-passagedata pid="23" name="Snapchat Reply 1" tags="" position="923,2168" size="100,100">[[haha its ok.. u can get to know me ;)&lt;br&gt; i can pick u up tonight u live near me-&gt;Snapchat Location Ending 1.0]] </tw-passagedata><tw-passagedata pid="24" name="Snapchat Reply 2" tags="" position="1139,2176" size="100,100">[[haha ok i can pick u up tonight u live pretty close ;)-&gt;Snapchat Location Ending 1.0]]</tw-passagedata><tw-passagedata pid="25" name="Snapchat Reply 3" tags="" position="1381,2129" size="100,100">[[wow bitch… i got ur snapchat because i thought you were hot &lt;br&gt;but clearly ur just another stuck up princess &lt;br&gt;no wonder ur single lol &lt;br&gt; u better watch ur back i know where u live-&gt;Snapchat Location Ending 2.0]]</tw-passagedata><tw-passagedata pid="26" name="Snapchat Location Ending 1.0" tags="" position="1047,2430" size="100,100">[[You begin to wonder if you ever mentioned where you live. You are about to ask him how he knows that information before you begin to realize something-&gt;Snapchat Location Ending 1.1]]</tw-passagedata><tw-passagedata pid="27" name="Snapchat Wait For Reply" tags="" position="1171,1926" size="100,100">{
-(set: _typing to $snapchat_person + &quot; is typing&quot;)
+(link: &quot;um sorry i dont even know u and i dont know why u have my snapchat&quot;)[(set: $snapchat_reply to 3)(goto: &quot;Snapchat Wait For Reply&quot;)]</tw-passagedata><tw-passagedata pid="23" name="Snapchat Reply 1" tags="" position="932,2147" size="100,100">[[haha its ok.. u can get to know me ;)&lt;br&gt; i can pick u up tonight u live near me-&gt;Snapchat Location Ending 1.0]] </tw-passagedata><tw-passagedata pid="24" name="Snapchat Reply 2" tags="" position="1151,2153" size="100,100">[[haha ok i can pick u up tonight u live pretty close ;)-&gt;Snapchat Location Ending 1.0]]</tw-passagedata><tw-passagedata pid="25" name="Snapchat Reply 3" tags="" position="1381,2145" size="100,100">[[wow bitch… i got ur snapchat because i thought you were hot &lt;br&gt;but clearly ur just another stuck up princess &lt;br&gt;no wonder ur single lol &lt;br&gt; u better watch ur back i know where u live-&gt;Snapchat Location Ending 2.0]]</tw-passagedata><tw-passagedata pid="26" name="Snapchat Location Ending 1.0" tags="" position="1047,2430" size="100,100">[[You begin to wonder if you ever mentioned where you live. You are about to ask him how he knows that information before you begin to realize something.-&gt;Snapchat Location Ending 1.1]]</tw-passagedata><tw-passagedata pid="27" name="Snapchat Wait For Reply" tags="" position="1169,1943" size="100,100">{
+(set: _typing to $snapchat_person + &quot; is typing...&quot;)
 (if: $snapchat_reply is 1) [
 	[[_typing-&gt;Snapchat Reply 1]]
 ] (else-if: $snapchat_reply is 2) [
@@ -166,9 +178,9 @@ It&#39;s some sort of conspiracy video. How do you react?
 	_text &lt;br&gt;
 	[[Go back to home screen-&gt;Check Phone]] 
 ]
-}</tw-passagedata><tw-passagedata pid="36" name="Snapchat Location Ending" tags="" position="1210,3130" size="100,100">[[You quickly block $snapchat_person but it&#39;s too late. There&#39;s already someone parked outside.-&gt;The End]]</tw-passagedata><tw-passagedata pid="37" name="Instagram Response" tags="" position="1756,1462" size="100,100">$DM
-[[omg LOL u actually responded what a fckin loser &lt;br&gt;hope u go kys &lt;br&gt;ur so ugly no wonder u only have 17 likes &lt;br&gt;lolol and only 873 followers?-&gt;Instagram Ending]]
-</tw-passagedata><tw-passagedata pid="38" name="Instagram Ending" tags="" position="1652,1652" size="100,100">{
+}</tw-passagedata><tw-passagedata pid="36" name="Snapchat Location Ending" tags="" position="1210,3130" size="100,100">[[You quickly block $snapchat_person but it&#39;s too late. There&#39;s already someone parked outside.-&gt;The End]]</tw-passagedata><tw-passagedata pid="37" name="Instagram Response 2" tags="" position="1979,1455" size="100,100">$DM
+[[omg LOL u actually responded what a fckin loser &lt;br&gt;hope u go kys &lt;br&gt;ur so ugly no wonder u only have 17 likes &lt;br&gt;lolol and only 873 followers?-&gt;Instagram Ending 2]]
+</tw-passagedata><tw-passagedata pid="38" name="Instagram Ending 2" tags="" position="1997,1633" size="100,100">{
 (set: _text to &quot;Nothing good comes out of replying to people like that.&quot;)
 (set: $available_apps to $available_apps - (a: &quot;instagram&quot;))
 (if: $available_apps&#39;s length is 0) [
@@ -179,6 +191,7 @@ It&#39;s some sort of conspiracy video. How do you react?
 ]
 }</tw-passagedata><tw-passagedata pid="39" name="Tweet" tags="" position="2380,1236" size="100,100">“My friend (always there when I’ve needed him!), Senator @RandPaul, was just tested “positive” from the Chinese Virus. That is not good! He is strong and will get better. Just spoke to him and he was in good spirits.”
 [[You retweet it because clearly you agree with him.-&gt;Retweet]]
+
 [[You immediately message your friend to tell him that you do not want to be sent tweets like this anymore.-&gt;No Retweet]]</tw-passagedata><tw-passagedata pid="40" name="Retweet" tags="" position="2269,1421" size="100,100">{
 (set: _text to &quot;Nobody really responds to your tweet or notices it because you have a small following, but you do get a few messages from your friends and family questioning your life decisions.&quot;)
 (set: $available_apps to $available_apps - (a: &quot;twitter&quot;))
@@ -191,6 +204,16 @@ It&#39;s some sort of conspiracy video. How do you react?
 }</tw-passagedata><tw-passagedata pid="41" name="No Retweet" tags="" position="2515,1420" size="100,100">{
 (set: _text to &quot;Good job, you did not engage with the xenophobia and racism that is evident in this tweet.&quot;)
 (set: $available_apps to $available_apps - (a: &quot;twitter&quot;))
+(if: $available_apps&#39;s length is 0) [
+	[[_text-&gt;The End]] 
+] (else:) [
+	_text &lt;br&gt;
+	[[Go back to home screen-&gt;Check Phone]]
+]
+}</tw-passagedata><tw-passagedata pid="42" name="Instagram Response 1" tags="" position="1673,1471" size="100,100">$DM
+[[omg LOL u actually responded what a fckin loser &lt;br&gt;hope u go kys &lt;br&gt;ur so ugly no wonder u only have 17 likes &lt;br&gt;lolol and only 873 followers?-&gt;Instagram Ending 1]]</tw-passagedata><tw-passagedata pid="43" name="Instagram Ending 1" tags="" position="1700,1653" size="100,100">{
+(set: _text to &quot;You engage in this conversation with this random stranger and find yourself feeling angry, hurt, and confused. Maybe next time you will ignore messages like this instead.&quot;)
+(set: $available_apps to $available_apps - (a: &quot;instagram&quot;))
 (if: $available_apps&#39;s length is 0) [
 	[[_text-&gt;The End]] 
 ] (else:) [
